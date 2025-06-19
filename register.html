@@ -1,0 +1,24 @@
+<!-- register.html or index.html -->
+<form action="register.php" method="post" onsubmit="return validateForm()">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" minlength="6" required>
+    <button type="submit">Register</button>
+</form>
+
+<script>
+function validateForm() {
+    const email = document.forms[0].email.value;
+    const password = document.forms[0].password.value;
+    
+    if (!email.includes("@")) {
+        alert("Invalid email format!");
+        return false;
+    }
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+    }
+    return true;
+}
+</script>
